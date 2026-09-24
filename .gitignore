@@ -5,3 +5,4 @@ dist/
 docs/
 *.pyc
 __pycache__
+.venv

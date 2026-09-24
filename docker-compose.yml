@@ -1,0 +1,22 @@
+services:
+  api-gateway:
+    build: ./services/api-gateway
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./services/api-gateway/.env
+    depends_on:
+      - auth-service
+      - rag-pipeline
+  auth-service:
+    build: ./services/auth-service
+    expose:
+      - "4001"
+    env_file:
+      - ./services/auth-service/.env
+  rag-pipeline:
+    build: ./services/rag-pipeline
+    expose:
+      - "8000"
+    env_file:
+      - ./services/rag-pipeline/.env
